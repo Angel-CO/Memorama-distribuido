@@ -8,8 +8,8 @@ namespace Contratos
 {
     public enum LoginResults
     {
-        PasswordIncorrecto = 2,
-        NoExisteUsuario = 3,
-        ExisteUsuario = 4
+        ContraseñaIncorrecta = 2,
+        NoExisteUrsuario = 3,
+        UsuarioEncontrado = 4
     }
 }
