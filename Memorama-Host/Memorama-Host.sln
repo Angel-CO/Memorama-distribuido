@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memorama-Host", "Memorama-Host\Memorama-Host.csproj", "{D3B6D900-3B39-4C94-9D96-574D40C862E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3B6D900-3B39-4C94-9D96-574D40C862E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3B6D900-3B39-4C94-9D96-574D40C862E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3B6D900-3B39-4C94-9D96-574D40C862E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3B6D900-3B39-4C94-9D96-574D40C862E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6249CFCE-D212-4BE5-A450-37A3E0D98BC2}
+	EndGlobalSection
+EndGlobal
