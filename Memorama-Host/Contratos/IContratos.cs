@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Contratos
 {
+    [ServiceContract(CallbackContract = typeof(IContratosCallBack))]
     public interface IContratos
     {
         [OperationContract(IsOneWay = true)]
         void Login(Usuario usuario);
 
-        [OperationContract(IsOneWay = true)]
-        void SendMessage(string destination, string message);
+      
     }
 }

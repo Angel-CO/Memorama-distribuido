@@ -12,10 +12,6 @@ namespace Contratos
         [OperationContract(IsOneWay = true)]
         void GetLoginResult(LoginResults resultado);
 
-        [OperationContract(IsOneWay = true)]
-        void GetUsersOnline(List<string> usuariosConectados);
-
-        [OperationContract(IsOneWay = true)]
-        void ReceiveMessage(string source, string message);
+       
     }
 }
