@@ -27,7 +27,7 @@ namespace Contratos
 
                
             };
-
+//Aquí va lo de la bd
 
             if (usuarios.Any(user => user.Nickname.Equals(usuario.Nickname)))
             {
