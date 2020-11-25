@@ -12,6 +12,9 @@ namespace Contratos
         [OperationContract(IsOneWay = true)]
         void GetLoginResult(LoginResults resultado);
 
+        [OperationContract(IsOneWay = true)]
+        void GetRegistroResultado(LoginResults resultado);
+
        
     }
 }

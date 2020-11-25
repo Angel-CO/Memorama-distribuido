@@ -35,6 +35,11 @@ namespace Contratos
             
         }
 
+        public void RegistrarUsuario(Usuario usuario)
+        {
+            throw new NotImplementedException();
+        }
+
         IContratosCallBack Callback
         {
             get

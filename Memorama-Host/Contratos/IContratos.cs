@@ -13,6 +13,9 @@ namespace Contratos
         [OperationContract(IsOneWay = true)]
         void Login(Usuario usuario);
 
+        [OperationContract(IsOneWay = true)]
+        void RegistrarUsuario(Usuario usuario);
+
       
     }
 }
