@@ -16,40 +16,6 @@ namespace Contratos
         private List<string> usuariosMensaje = new List<string>();
         public void Login(Usuario usuario)
         {
-            LoginResults resultado;
-            List<Usuario> usuarios = new List<Usuario>
-            {
-                new Usuario()
-                {
-                    Nickname = "techjonlogi",
-                    Password = "musica0102"
-                },
-
-               
-            };
-//Aquí va lo de la bd
-
-            if (usuarios.Any(user => user.Nickname.Equals(usuario.Nickname)))
-            {
-                if (usuarios.Any(user => user.Password.Equals(usuario.Password)))
-                {
-                    resultado = LoginResults.UsuarioEncontrado;
-
-
-                }
-                else
-                {
-                    resultado = LoginResults.ContraseñaIncorrecta;
-                }
-
-            }
-            else
-            {
-                resultado = LoginResults.NoExisteUrsuario;
-            }
-
-
-            Callback.GetLoginResult(resultado);
             
         }
 
