@@ -6,50 +6,32 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Contratos
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
     public class Servicios :IContratos
     {
-        private Dictionary<IContratosCallBack, string> usuariosConectados = new Dictionary<IContratosCallBack, string>();
-        private List<string> usuariosMensaje = new List<string>();
         public void Login(Usuario usuario)
         {
-            LoginResults resultado;
-            List<Usuario> usuarios = new List<Usuario>
+            using (MemoramaDBEntities db = new MemoramaDBEntities())
             {
-                new Usuario()
+                var usu = db.Usuario.Where((x) => x.Nickname == usuario.Nickname).FirstOrDefault();
+                if (usu != null)
                 {
-                    Nickname = "techjonlogi",
-                    Password = "musica0102"
-                },
-
-               
-            };
-
-
-            if (usuarios.Any(user => user.Nickname.Equals(usuario.Nickname)))
-            {
-                if (usuarios.Any(user => user.Password.Equals(usuario.Password)))
-                {
-                    resultado = LoginResults.UsuarioEncontrado;
-
-
+                    if (usu.Password.Equals(usuario.Password))
+                    {
+                        Callback.GetLoginResult(LoginResults.UsuarioEncontrado);
+                    }
+                    else
+                    {
+                        Callback.GetLoginResult(LoginResults.ContraseñaIncorrecta);
+                    }
                 }
                 else
                 {
-                    resultado = LoginResults.ContraseñaIncorrecta;
+                    Callback.GetLoginResult(LoginResults.NoExisteUrsuario);
                 }
-
             }
-            else
-            {
-                resultado = LoginResults.NoExisteUrsuario;
-            }
-
-
-            Callback.GetLoginResult(resultado);
             
         }
 
