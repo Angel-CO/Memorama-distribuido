@@ -37,7 +37,27 @@ namespace Contratos
 
         public void RegistrarUsuario(Usuario usuario)
         {
-            throw new NotImplementedException();
+            using (MemoramaDBEntities db = new MemoramaDBEntities()) 
+            {
+                Usuario us = new Usuario();
+                us.Correo = usuario.Correo;
+                us.Nickname = usuario.Nickname;
+                us.Password = usuario.Password;
+                db.Usuario.Add(us);
+                try
+                {
+                    db.SaveChanges();
+                    Callback.GetRegistroResultado(ResultadosRegistro.RegistradoConExito);
+
+                }
+                catch (Exception e) {
+
+                    Callback.GetRegistroResultado(ResultadosRegistro.NoEsPosibleRegistrar);
+                }
+                
+               
+
+            }
         }
 
         IContratosCallBack Callback
