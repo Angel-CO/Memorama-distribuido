@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Contratos
 {
-    public enum ResultadosRegistro
+    public enum ResultadoValidacion
     {
-        RegistradoConExito = 1,
-        NoEsPosibleRegistrar = 0
+        CodigoCorrecto = 1,
+        CodigoIncorrecto = 0
     }
 }

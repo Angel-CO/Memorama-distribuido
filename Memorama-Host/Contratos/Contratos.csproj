@@ -95,6 +95,7 @@
       <DependentUpon>MemoramaDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ResultadosRegistro.cs" />
+    <Compile Include="ResultadoValidacion.cs" />
     <Compile Include="Servicios.cs" />
     <Compile Include="SolicitudAmistad.cs">
       <DependentUpon>MemoramaDBModel.tt</DependentUpon>

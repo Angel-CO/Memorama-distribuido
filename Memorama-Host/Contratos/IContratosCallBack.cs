@@ -15,6 +15,9 @@ namespace Contratos
         [OperationContract(IsOneWay = true)]
         void GetRegistroResultado(ResultadosRegistro resultado);
 
-       
+        [OperationContract(IsOneWay = true)]
+        void GetValidacionResultado(ResultadoValidacion resultado);
+
+
     }
 }
