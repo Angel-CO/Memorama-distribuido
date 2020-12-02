@@ -11,6 +11,10 @@ namespace Contratos
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
     public class Servicios :IContratos
     {
+
+        private Dictionary<IContratosCallBack, string> usuariosConectados = new Dictionary<IContratosCallBack, string>();
+        private List<string> usuariosMensaje = new List<string>();
+
         public void Login(Usuario usuario)
         {
             using (MemoramaDBEntities db = new MemoramaDBEntities())
@@ -20,6 +24,7 @@ namespace Contratos
                 {
                     if (usu.Password.Equals(usuario.Password))
                     {
+                        
                         Callback.GetLoginResult(LoginResults.UsuarioEncontrado);
                     }
                     else
@@ -126,5 +131,53 @@ namespace Contratos
             }
             Console.ReadLine();
         }
+
+       
+
+        public void AgregarUsuariosLobby(Usuario usuario)
+        {
+            usuariosConectados.Add(Callback, usuario.Nickname);
+            usuariosMensaje.Add(usuario.Nickname);
+            NotificarDeNuevoUsuario();
+        }
+
+        private void NotificarDeNuevoUsuario()
+        {
+            foreach (var _usuario in usuariosConectados)
+            {
+                _usuario.Key.GetUsuariosOnline(usuariosMensaje);
+            }
+        }
+    
+    
+     public void EnviarMensaje(string destino, string mensaje)
+        {
+            foreach (var usuario in usuariosConectados)
+            {
+                if (usuario.Value.Equals(destino))
+                {
+                    usuario.Key.RecibirMensajes(GetSourceUser(), mensaje);
+                }
+            }
+        }
+
+        private string GetSourceUser()
+        {
+            string sourceUser = "";
+
+            foreach (var usuario in usuariosConectados)
+            {
+                if (usuario.Key == Callback)
+                {
+                    sourceUser = usuario.Value;
+                }
+
+            }
+
+            return sourceUser;
+        }
+
+
     }
+
 }

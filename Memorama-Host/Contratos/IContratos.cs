@@ -23,5 +23,8 @@ namespace Contratos
         [OperationContract(IsOneWay = true)]
         void EnviarMensaje(string destino, string mensaje);
 
+        [OperationContract(IsOneWay = true)]
+        void AgregarUsuariosLobby(Usuario usuario);
+
     }
 }

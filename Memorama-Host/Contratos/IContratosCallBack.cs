@@ -18,6 +18,12 @@ namespace Contratos
         [OperationContract(IsOneWay = true)]
         void GetValidacionResultado(ResultadoValidacion resultado);
 
+        [OperationContract(IsOneWay = true)]
+        void GetUsuariosOnline(List<string> usuariosConectados);
+
+        [OperationContract(IsOneWay = true)]
+        void RecibirMensajes(string source, string message);
+
 
     }
 }
