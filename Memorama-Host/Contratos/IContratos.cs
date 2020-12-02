@@ -19,5 +19,9 @@ namespace Contratos
         [OperationContract(IsOneWay = true)]
         void ValidarRegistro(Usuario usuario, string codigoVerificacion);
 
+
+        [OperationContract(IsOneWay = true)]
+        void EnviarMensaje(string destino, string mensaje);
+
     }
 }
