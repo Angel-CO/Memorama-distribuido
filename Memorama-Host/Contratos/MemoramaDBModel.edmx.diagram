@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="00fbffa2262746ee8f7bb03dd42a9bfd" Name="Diagram1">
+      <Diagram DiagramId="42e3cecee5994d1a832a53742e2fb409" Name="Diagram1">
         <EntityTypeShape EntityType="MemoramaDBModel.Partida" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MemoramaDBModel.Reporte" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MemoramaDBModel.SolicitudAmistad" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
