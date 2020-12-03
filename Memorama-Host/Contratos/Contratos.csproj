@@ -103,6 +103,7 @@
     <Compile Include="Usuario.cs">
       <DependentUpon>MemoramaDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UsuarioRanking.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MemoramaDB.mdf">

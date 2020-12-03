@@ -52,17 +52,23 @@ namespace Contratos
                 us.Correo = usuario.Correo;
                 us.Nickname = usuario.Nickname;
                 us.Password = usuario.Password;
-                us.EstadoVerificacion = "Sin verificar";
-                us.CodigoVerificacion = codigoVerificacion.ToString();
-                db.Usuario.Add(us);
+                
+                //us.EstadoVerificacion = "Sin verificar";
+                //us.CodigoVerificacion = codigoVerificacion.ToString();
+
+                usuario.CodigoVerificacion = codigoVerificacion.ToString();
+                usuario.EstadoVerificacion = "Sin verificar";
+                
                 try
                 {
+                    db.Usuario.Add(us);
                     db.SaveChanges();
+
                     Callback.GetRegistroResultado(ResultadosRegistro.RegistradoConExito);
                     enviarCorreo(usuario.Correo, codigoVerificacion);
 
                 }
-                catch (Exception e) {
+                catch {
 
                     Callback.GetRegistroResultado(ResultadosRegistro.NoEsPosibleRegistrar);
                 }
@@ -150,7 +156,7 @@ namespace Contratos
         }
     
     
-     public void EnviarMensaje(string destino, string mensaje)
+        public void EnviarMensaje(string destino, string mensaje)
         {
             foreach (var usuario in usuariosConectados)
             {
@@ -177,7 +183,24 @@ namespace Contratos
             return sourceUser;
         }
 
+        public void RankingUsuarios()
+        {
+            using (MemoramaDBEntities db = new MemoramaDBEntities())
+            {
+                List<UsuarioRanking> ranking = new List<UsuarioRanking>();
+                var usuarios = db.Usuario.Where(p => p.PuntajeTotal != null).OrderByDescending(x => x.PuntajeTotal);
+                
+                foreach (var usu in usuarios)
+                {
+                    UsuarioRanking usuarioRanking = new UsuarioRanking();
+                    usuarioRanking.Nickname = usu.Nickname;
+                    usuarioRanking.Puntuacion = (int)usu.PuntajeTotal;
 
+                    ranking.Add(usuarioRanking);
+                }
+                Callback.GetRanking(ranking);
+                //usuarios.Max<>
+            }
+        }
     }
-
 }

@@ -24,6 +24,7 @@ namespace Contratos
         [OperationContract(IsOneWay = true)]
         void RecibirMensajes(string source, string message);
 
-
+        [OperationContract(IsOneWay = true)]
+        void GetRanking(List<UsuarioRanking> ranking);
     }
 }

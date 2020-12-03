@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c8e03116d16e4badbff3e260c0fd867a" Name="Diagram1">
+      <Diagram DiagramId="00fbffa2262746ee8f7bb03dd42a9bfd" Name="Diagram1">
         <EntityTypeShape EntityType="MemoramaDBModel.Partida" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MemoramaDBModel.Reporte" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MemoramaDBModel.SolicitudAmistad" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="MemoramaDBModel.Usuario" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MemoramaDBModel.Usuario" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
         <AssociationConnector Association="MemoramaDBModel.FK_dbo_Partida_dbo_Usuario_Nickname" ManuallyRouted="false" />
         <AssociationConnector Association="MemoramaDBModel.FK_dbo_Reporte_dbo_Usuario_Nickname" ManuallyRouted="false" />
         <AssociationConnector Association="MemoramaDBModel.FK_dbo_SolicitudAmistad_dbo_Usuario_Nickname" ManuallyRouted="false" />

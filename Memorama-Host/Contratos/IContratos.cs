@@ -26,5 +26,7 @@ namespace Contratos
         [OperationContract(IsOneWay = true)]
         void AgregarUsuariosLobby(Usuario usuario);
 
+        [OperationContract(IsOneWay = true)]
+        void RankingUsuarios();
     }
 }

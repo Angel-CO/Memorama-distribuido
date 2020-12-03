@@ -44,6 +44,7 @@
           <Property Name="NumeroPartidas" Type="int" />
           <Property Name="EstadoVerificacion" Type="varchar(max)" />
           <Property Name="CodigoVerificacion" Type="varchar(max)" />
+          <Property Name="PuntajeTotal" Type="int" />
         </EntityType>
         <Association Name="FK_dbo_Partida_dbo_Usuario_Nickname">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1">
@@ -152,6 +153,7 @@
           <Property Name="NumeroPartidas" Type="Int32" />
           <Property Name="EstadoVerificacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CodigoVerificacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PuntajeTotal" Type="Int32" />
           <NavigationProperty Name="Partida" Relationship="Self.FK_dbo_Partida_dbo_Usuario_Nickname" FromRole="Usuario" ToRole="Partida" />
           <NavigationProperty Name="Reporte" Relationship="Self.FK_dbo_Reporte_dbo_Usuario_Nickname" FromRole="Usuario" ToRole="Reporte" />
           <NavigationProperty Name="SolicitudAmistad" Relationship="Self.FK_dbo_SolicitudAmistad_dbo_Usuario_Nickname" FromRole="Usuario" ToRole="SolicitudAmistad" />
@@ -263,6 +265,7 @@
                 <ScalarProperty Name="NumeroPartidas" ColumnName="NumeroPartidas" />
                 <ScalarProperty Name="EstadoVerificacion" ColumnName="EstadoVerificacion" />
                 <ScalarProperty Name="CodigoVerificacion" ColumnName="CodigoVerificacion" />
+                <ScalarProperty Name="PuntajeTotal" ColumnName="PuntajeTotal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
