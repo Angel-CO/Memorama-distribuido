@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carta.cs" />
     <Compile Include="IContratos.cs" />
     <Compile Include="IContratosCallBack.cs" />
     <Compile Include="LoginResults.cs" />
