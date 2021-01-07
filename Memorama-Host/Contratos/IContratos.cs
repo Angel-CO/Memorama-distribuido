@@ -28,5 +28,14 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void RankingUsuarios();
+
+        [OperationContract(IsOneWay = true)]
+        void Empezarjuego();
+
+        [OperationContract(IsOneWay = true)]
+        void PasarCarta();
+
+        [OperationContract(IsOneWay = true)]
+        void LogOutLobby();
     }
 }

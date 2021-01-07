@@ -202,5 +202,20 @@ namespace Contratos
                 //usuarios.Max<>
             }
         }
+
+        public void Empezarjuego()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PasarCarta()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LogOutLobby()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -26,5 +26,11 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void GetRanking(List<UsuarioRanking> ranking);
+
+        [OperationContract(IsOneWay = true)]
+        void GetCarta();
+
+        [OperationContract(IsOneWay = true)]
+        void GetJuego();
     }
 }
