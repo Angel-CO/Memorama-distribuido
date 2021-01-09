@@ -33,9 +33,9 @@ namespace Contratos
         void Empezarjuego();
 
         [OperationContract(IsOneWay = true)]
-        void PasarCarta();
+        void PasarCarta(int id, String source,int id2);
 
         [OperationContract(IsOneWay = true)]
-        void LogOutLobby();
+        void LogOutLobby(String usuario);
     }
 }

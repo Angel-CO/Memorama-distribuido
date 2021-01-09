@@ -28,7 +28,7 @@ namespace Contratos
         void GetRanking(List<UsuarioRanking> ranking);
 
         [OperationContract(IsOneWay = true)]
-        void GetCarta();
+        void GetCarta(int id,String source, int id2);
 
         [OperationContract(IsOneWay = true)]
         void GetJuego();

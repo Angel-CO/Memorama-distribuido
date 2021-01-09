@@ -5,11 +5,12 @@ using System.ServiceModel;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace Contratos
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
-    public class Servicios :IContratos
+    public class Servicios : IContratos
     {
 
         private Dictionary<IContratosCallBack, string> usuariosConectados = new Dictionary<IContratosCallBack, string>();
@@ -138,21 +139,47 @@ namespace Contratos
             Console.ReadLine();
         }
 
-       
+
 
         public void AgregarUsuariosLobby(Usuario usuario)
         {
-            usuariosConectados.Add(Callback, usuario.Nickname);
-            usuariosMensaje.Add(usuario.Nickname);
-            NotificarDeNuevoUsuario();
+            Boolean existe = false;
+
+
+            foreach (var usuarioC in usuariosConectados)
+            {
+                if (usuario.Nickname.Equals(usuarioC.Value)) 
+                {
+                    existe = true;
+                    break;
+
+
+                }
+
+
+            
+            }
+            if(!existe) 
+            {
+                usuariosConectados.Add(Callback, usuario.Nickname);
+                usuariosMensaje.Add(usuario.Nickname);
+                NotificarDeNuevoUsuario();
+            }
+            else
+            {
+                NotificarDeNuevoUsuario();
+
+            }
+
+            
         }
 
         private void NotificarDeNuevoUsuario()
         {
-            foreach (var _usuario in usuariosConectados)
-            {
-                _usuario.Key.GetUsuariosOnline(usuariosMensaje);
-            }
+            
+            
+                Callback.GetUsuariosOnline(usuariosMensaje);
+           
         }
     
     
@@ -208,14 +235,33 @@ namespace Contratos
             throw new NotImplementedException();
         }
 
-        public void PasarCarta()
+        public void PasarCarta(int id,String source,int id2)
         {
-            throw new NotImplementedException();
+            
+            Callback.GetCarta(id,source,id2);
+            
         }
 
-        public void LogOutLobby()
+        public void LogOutLobby(String usuario)
         {
-            throw new NotImplementedException();
+            foreach (var usuarioC in usuariosConectados)
+            {
+
+                if (usuarioC.Value.Equals(usuario)) 
+                {
+                    usuariosConectados.Remove(usuarioC.Key);
+                    usuariosMensaje.Remove(usuario);
+                    break;
+                
+                }
+
+               
+
+            }
+            NotificarDeNuevoUsuario();
+            
         }
+
+      
     }
 }
