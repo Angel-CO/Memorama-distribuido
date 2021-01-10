@@ -31,6 +31,6 @@ namespace Contratos
         void GetCarta(int id,String source, int id2);
 
         [OperationContract(IsOneWay = true)]
-        void GetJuego();
+        void GetJuego(Boolean bandera);
     }
 }

@@ -232,7 +232,24 @@ namespace Contratos
 
         public void Empezarjuego()
         {
-            throw new NotImplementedException();
+            Boolean bandera = false;
+            if (usuariosConectados.Count >= 2)
+            {
+                bandera = true;
+               
+                foreach(var cliente in usuariosConectados)
+                {
+                    Callback.GetJuego(bandera);
+                }
+                
+            }
+            else 
+            {
+                foreach (var cliente in usuariosConectados)
+                {
+                    Callback.GetJuego(bandera);
+                }
+            }
         }
 
         public void PasarCarta(int id,String source,int id2)
