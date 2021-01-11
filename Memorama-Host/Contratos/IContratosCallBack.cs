@@ -9,6 +9,12 @@ namespace Contratos
 {
     public interface IContratosCallBack
     {
+        /// <summary>
+        /// Esta interface contiene los metodos que serviran de respuesta a los clientes.
+        /// </summary>
+        /// <param name="resultado"></param>
+        
+        
         [OperationContract(IsOneWay = true)]
         void GetLoginResult(LoginResults resultado);
 
@@ -28,9 +34,9 @@ namespace Contratos
         void GetRanking(List<UsuarioRanking> ranking);
 
         [OperationContract(IsOneWay = true)]
-        void GetCarta(int id,String source, int id2);
+        void GetCarta(String objeto, String objeto2); 
 
         [OperationContract(IsOneWay = true)]
-        void GetJuego(Boolean bandera);
+        void GetJuego(Boolean bandera, int numero);
     }
 }

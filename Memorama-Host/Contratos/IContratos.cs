@@ -10,6 +10,12 @@ namespace Contratos
     [ServiceContract(CallbackContract = typeof(IContratosCallBack))]
     public interface IContratos
     {
+        /// <summary>
+        /// Esta interface contiene los contratos que se expondran en la red
+        /// </summary>
+        /// <param name="usuario"></param>
+
+        
         [OperationContract(IsOneWay = true)]
         void Login(Usuario usuario);
 
@@ -33,7 +39,7 @@ namespace Contratos
         void Empezarjuego();
 
         [OperationContract(IsOneWay = true)]
-        void PasarCarta(int id, String source,int id2);
+        void PasarCarta(String objeto, String Objeto2);
 
         [OperationContract(IsOneWay = true)]
         void LogOutLobby(String usuario);

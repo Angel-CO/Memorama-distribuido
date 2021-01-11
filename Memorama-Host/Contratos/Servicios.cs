@@ -13,6 +13,10 @@ namespace Contratos
     public class Servicios : IContratos
     {
 
+        /// <summary>
+        /// Clase encargada del funcionamiento del servidor, aquí contien la implentacion de todos los metodos expuestos en la red
+        /// </summary>
+
         private Dictionary<IContratosCallBack, string> usuariosConectados = new Dictionary<IContratosCallBack, string>();
         private List<string> usuariosMensaje = new List<string>();
 
@@ -233,13 +237,15 @@ namespace Contratos
         public void Empezarjuego()
         {
             Boolean bandera = false;
+            Random random = new Random();
+           int numero =  random.Next(0, 5);
             if (usuariosConectados.Count >= 2)
             {
                 bandera = true;
                
                 foreach(var cliente in usuariosConectados)
                 {
-                    Callback.GetJuego(bandera);
+                    Callback.GetJuego(bandera, numero);
                 }
                 
             }
@@ -247,15 +253,15 @@ namespace Contratos
             {
                 foreach (var cliente in usuariosConectados)
                 {
-                    Callback.GetJuego(bandera);
+                    Callback.GetJuego(bandera,numero);
                 }
             }
         }
 
-        public void PasarCarta(int id,String source,int id2)
+        public void PasarCarta(String objeto, String objeto2)
         {
             
-            Callback.GetCarta(id,source,id2);
+            Callback.GetCarta(objeto,objeto2);
             
         }
 

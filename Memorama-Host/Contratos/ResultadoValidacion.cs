@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Contratos
 {
+    /// <summary>
+    /// Enumeracion que contiene los posibles resultados de la calidacion
+    /// </summary>
     public enum ResultadoValidacion
     {
         CodigoCorrecto = 1,

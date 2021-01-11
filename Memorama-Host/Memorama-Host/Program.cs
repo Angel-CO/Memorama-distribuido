@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Memorama_Host
 {
+    /// <summary>
+    /// Main del programa, Es donde inicia el servidor
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
