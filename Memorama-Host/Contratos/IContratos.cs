@@ -43,5 +43,8 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void LogOutLobby(String usuario);
+
+        [OperationContract(IsOneWay = true)]
+        void AgregarPuntuacion(String usuario, int puntaje);
     }
 }

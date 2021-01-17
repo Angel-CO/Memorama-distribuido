@@ -72,57 +72,38 @@
     <Compile Include="IContratos.cs" />
     <Compile Include="IContratosCallBack.cs" />
     <Compile Include="LoginResults.cs" />
-    <Compile Include="MemoramaDBModel.Context.cs">
+    <Compile Include="MemoramaDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MemoramaDBModel.Context.tt</DependentUpon>
+      <DependentUpon>MemoramaDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MemoramaDBModel.cs">
+    <Compile Include="MemoramaDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MemoramaDBModel.tt</DependentUpon>
+      <DependentUpon>MemoramaDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="MemoramaDBModel.Designer.cs">
+    <Compile Include="MemoramaDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MemoramaDBModel.edmx</DependentUpon>
+      <DependentUpon>MemoramaDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Partida.cs">
-      <DependentUpon>MemoramaDBModel.tt</DependentUpon>
+      <DependentUpon>MemoramaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reporte.cs">
-      <DependentUpon>MemoramaDBModel.tt</DependentUpon>
+      <DependentUpon>MemoramaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="ResultadosRegistro.cs" />
     <Compile Include="ResultadoValidacion.cs" />
     <Compile Include="Servicios.cs" />
     <Compile Include="SolicitudAmistad.cs">
-      <DependentUpon>MemoramaDBModel.tt</DependentUpon>
+      <DependentUpon>MemoramaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
-      <DependentUpon>MemoramaDBModel.tt</DependentUpon>
+      <DependentUpon>MemoramaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="UsuarioRanking.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MemoramaDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="MemoramaDBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MemoramaDBModel.edmx</DependentUpon>
-      <LastGenOutput>MemoramaDBModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="MemoramaDBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MemoramaDBModel.edmx</DependentUpon>
-      <LastGenOutput>MemoramaDBModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="MemoramaDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>MemoramaDB.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -138,17 +119,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="MemoramaDBModel.edmx">
+    <EntityDeploy Include="MemoramaDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MemoramaDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>MemoramaDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MemoramaDBModel.edmx.diagram">
-      <DependentUpon>MemoramaDBModel.edmx</DependentUpon>
+    <None Include="MemoramaDB.edmx.diagram">
+      <DependentUpon>MemoramaDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MemoramaDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MemoramaDB.edmx</DependentUpon>
+      <LastGenOutput>MemoramaDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MemoramaDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MemoramaDB.edmx</DependentUpon>
+      <LastGenOutput>MemoramaDB.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
