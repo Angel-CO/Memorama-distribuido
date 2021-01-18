@@ -13,10 +13,10 @@ namespace Contratos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MemoramaDB : DbContext
+    public partial class MemoramaDBEntities : DbContext
     {
-        public MemoramaDB()
-            : base("name=MemoramaDB")
+        public MemoramaDBEntities()
+            : base("name=MemoramaDBEntities")
         {
         }
     

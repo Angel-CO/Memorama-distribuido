@@ -200,7 +200,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MemoramaDB" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MemoramaDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Partida" EntityType="Self.Partida" />
           <EntitySet Name="Reporte" EntityType="Self.Reporte" />
           <EntitySet Name="SolicitudAmistad" EntityType="Self.SolicitudAmistad" />
@@ -223,7 +223,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MemoramaDBModelStoreContainer" CdmEntityContainer="MemoramaDB">
+        <EntityContainerMapping StorageEntityContainer="MemoramaDBModelStoreContainer" CdmEntityContainer="MemoramaDBEntities">
           <EntitySetMapping Name="Partida">
             <EntityTypeMapping TypeName="MemoramaDBModel.Partida">
               <MappingFragment StoreEntitySet="Partida">

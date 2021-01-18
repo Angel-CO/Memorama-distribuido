@@ -22,7 +22,7 @@ namespace Contratos
 
         public void Login(Usuario usuario)
         {
-            using (MemoramaDB db = new MemoramaDB())
+            using (MemoramaDBEntities db = new MemoramaDBEntities ())
             {
                 var usu = db.Usuario.Where((x) => x.Nickname == usuario.Nickname).FirstOrDefault();
                 if (usu != null)
@@ -47,7 +47,7 @@ namespace Contratos
 
         public void RegistrarUsuario(Usuario usuario)
         {
-            using (MemoramaDB db = new MemoramaDB()) 
+            using (MemoramaDBEntities db = new MemoramaDBEntities()) 
             {
                 Random random = new Random();
                 int codigoVerificacion = random.Next(100000, 1000000);
@@ -85,7 +85,7 @@ namespace Contratos
 
         public void ValidarRegistro(Usuario usuario, string codigoVerificacion)
         {
-            using (MemoramaDB db = new MemoramaDB())
+            using (MemoramaDBEntities db = new MemoramaDBEntities())
             {
                 var usu = db.Usuario.Where((x) => x.Nickname == usuario.Nickname).FirstOrDefault();
                 if(usu != null)
@@ -216,7 +216,7 @@ namespace Contratos
 
         public void RankingUsuarios()
         {
-            using (MemoramaDB db = new MemoramaDB())
+            using (MemoramaDBEntities db = new MemoramaDBEntities())
             {
                 List<UsuarioRanking> ranking = new List<UsuarioRanking>();
                 var usuarios = db.Usuario.Where(p => p.PuntajeTotal != null).OrderByDescending(x => x.PuntajeTotal);
@@ -288,7 +288,7 @@ namespace Contratos
         public void AgregarPuntuacion(string usuario, int puntaje)
         {
             
-            using (MemoramaDB db = new MemoramaDB()) 
+            using (MemoramaDBEntities db = new MemoramaDBEntities()) 
             {
                 var usuarioEditar = db.Usuario.FirstOrDefault(x => x.Nickname == usuario);
                 usuarioEditar.PuntajeTotal = puntaje;
