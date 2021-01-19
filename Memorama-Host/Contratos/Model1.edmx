@@ -148,7 +148,7 @@
             <PropertyRef Name="Nickname" />
           </Key>
           <Property Name="Nickname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="NumeroPartidas" Type="Int32" />
           <Property Name="EstadoVerificacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />

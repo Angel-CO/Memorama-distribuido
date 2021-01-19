@@ -73,7 +73,7 @@ namespace Contratos
                     enviarCorreo(usuario.Correo, codigoVerificacion);
 
                 }
-                catch {
+                catch (Exception e){
 
                     Callback.GetRegistroResultado(ResultadosRegistro.NoEsPosibleRegistrar);
                 }
