@@ -12,6 +12,7 @@ namespace Contratos
     public enum ResultadoValidacion
     {
         CodigoCorrecto = 1,
-        CodigoIncorrecto = 0
+        CodigoIncorrecto = 0,
+        NoseEncuentraElUsuario =2
     }
 }

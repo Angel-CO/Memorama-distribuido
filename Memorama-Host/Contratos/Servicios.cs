@@ -63,6 +63,8 @@ namespace Contratos
 
                 usuario.CodigoVerificacion = codigoVerificacion.ToString();
                 usuario.EstadoVerificacion = "Sin verificar";
+                us.EstadoVerificacion = usuario.EstadoVerificacion;
+                us.CodigoVerificacion = usuario.CodigoVerificacion;
                 
                 try
                 {
