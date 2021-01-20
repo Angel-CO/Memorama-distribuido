@@ -46,5 +46,15 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void AgregarPuntuacion(String usuario, int puntaje);
+
+        [OperationContract(IsOneWay = true)]
+        void BuscarParaCambiarContraseña(string usuario, string correo);
+
+
+        [OperationContract(IsOneWay = true)]
+        void CambiarContraseña(string contraseña, string usuario);
+
+        [OperationContract(IsOneWay = true)]
+        void validarCodigoContraseña(string codigo,string usuario);
     }
 }

@@ -124,11 +124,11 @@ namespace Contratos
             msj.Body = "Código de verificación '" + codigoVerificacion + "'";
             msj.BodyEncoding = System.Text.Encoding.UTF8;
             msj.IsBodyHtml = true;
-            msj.From = new System.Net.Mail.MailAddress("angeljcalderono@gmail.com");
+            msj.From = new System.Net.Mail.MailAddress("jhoni65475@gmail.com");
 
             System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
 
-            cliente.Credentials = new System.Net.NetworkCredential("angeljcalderono@gmail.com", "15%DmP5&");
+            cliente.Credentials = new System.Net.NetworkCredential("jhoni65475@gmail.com", "somos ajenos");
             cliente.Port = 587;
             cliente.EnableSsl = true;
             cliente.Host = "smtp.gmail.com";
@@ -142,7 +142,7 @@ namespace Contratos
             {
                 Console.WriteLine(e.Message);
             }
-            Console.ReadLine();
+            
         }
 
 
@@ -301,6 +301,102 @@ namespace Contratos
             
             }
 
+        }
+
+        public void BuscarParaCambiarContraseña(string usuario, string correo)
+        {
+            using (MemoramaDBEntities db = new MemoramaDBEntities()) 
+            {
+
+                var usuarioabuscar = db.Usuario.FirstOrDefault(x => x.Nickname == usuario);
+                    if(usuario != null)
+                {
+                    if (usuarioabuscar.Correo.Equals(correo))
+                    {
+                        Random random = new Random();
+                        int codigoVerificacion = random.Next(100000, 1000000);
+                        usuarioabuscar.CodigoVerificacion = codigoVerificacion.ToString();
+                        db.SaveChanges();
+                        enviarCorreo(correo, codigoVerificacion);
+
+                        Callback.GetResultadoBusqueda(usuarioabuscar.Nickname);
+
+                    }
+                    else 
+                    {
+                        Callback.correoEquivocado();
+                    }
+
+                }
+                else 
+                {
+                    Callback.NoExisteUsuario();
+                }
+
+
+            
+            
+            }
+        }
+
+        
+
+
+
+        public void CambiarContraseña(string contraseña,string usuario)
+        {
+            using (MemoramaDBEntities db = new MemoramaDBEntities())
+            {
+                var usuarioEditar = db.Usuario.FirstOrDefault(x => x.Nickname == usuario);
+                
+                
+                    usuarioEditar.Password = contraseña;
+               
+              
+               
+                
+                
+                try
+                {
+                    db.SaveChanges();
+                    Callback.ContraseñaCambiada();
+                }
+                catch 
+                {
+
+                    Callback.NosepudocambiarLaContraseña();
+                }
+
+
+
+            }
+
+        }
+
+       
+
+        public void validarCodigoContraseña(string codigo, string usuario)
+        {
+            using (MemoramaDBEntities db = new MemoramaDBEntities())
+            {
+                var usuarioabuscar = db.Usuario.FirstOrDefault(x => x.Nickname == usuario);
+                if (usuarioabuscar != null)
+                {
+                    if (usuarioabuscar.CodigoVerificacion == codigo)
+                    {
+                        Callback.CodigoValidado(usuario);
+                    }
+                    else
+                    {
+                        Callback.GetValidacionResultado(ResultadoValidacion.CodigoIncorrecto);
+                    }
+
+
+                }
+                else {
+                    Callback.GetValidacionResultado(ResultadoValidacion.NoseEncuentraElUsuario);
+                }
+            }
         }
     }
 }

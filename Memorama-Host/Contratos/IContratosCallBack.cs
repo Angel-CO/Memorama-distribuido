@@ -38,5 +38,28 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void GetJuego(Boolean bandera, int numero);
+
+
+        [OperationContract(IsOneWay = true)]
+        void GetResultadoBusqueda(string usuario);
+
+        [OperationContract(IsOneWay = true)]
+        void NoExisteUsuario();
+
+        [OperationContract(IsOneWay = true)]
+        void correoEquivocado();
+
+        [OperationContract(IsOneWay = true)]
+        void NosepudocambiarLaContraseña();
+
+
+        [OperationContract(IsOneWay = true)]
+        void UsuarioEncontrado(string usuario);
+
+        [OperationContract(IsOneWay = true)]
+        void CodigoValidado(string usuario);
+
+        [OperationContract(IsOneWay = true)]
+        void ContraseñaCambiada();
     }
 }
