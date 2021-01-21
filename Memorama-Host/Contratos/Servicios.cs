@@ -406,19 +406,37 @@ namespace Contratos
             {
 
                 var usuarioabuscar = db.Usuario.FirstOrDefault(x => x.Nickname == usuario);
-                if(usuarioabuscar != null)
+                if (usuarioabuscar != null)
                 {
-                    usuarioabuscar.CantidadReportes = usuarioabuscar.CantidadReportes + 1;
-                    db.SaveChanges();
-                    Callback.EstadoReporte();
+                    if (usuarioabuscar.CantidadReportes == null)
+                    {
+                        usuarioabuscar.CantidadReportes = 1;
+                        db.SaveChanges();
+                        Callback.EstadoReporte();
 
+                    }
+                    else
+                    {
+                        usuarioabuscar.CantidadReportes = usuarioabuscar.CantidadReportes + 1;
+                        db.SaveChanges();
+                        Callback.EstadoReporte();
+
+                    }
+
+
+
+                    if (usuarioabuscar.CantidadReportes >= 3)
+                    {
+                        db.Usuario.Remove(usuarioabuscar);
+                        db.SaveChanges();
+
+
+                    }
                 }
-                if (usuarioabuscar.CantidadReportes > 3) 
+                else 
                 {
-                    db.Usuario.Remove(usuarioabuscar);
-                    db.SaveChanges();
-                    Callback.EstadoReporte();
 
+                    Callback.NoExisteUsuario();
                 }
             }
         }
