@@ -56,5 +56,9 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void validarCodigoContraseña(string codigo,string usuario);
+
+
+        [OperationContract(IsOneWay = true)]
+        void verificarReportes(string usuario);
     }
 }

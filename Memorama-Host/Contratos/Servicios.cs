@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using System.Data.Common;
 
 namespace Contratos
 {
@@ -395,6 +396,29 @@ namespace Contratos
                 }
                 else {
                     Callback.GetValidacionResultado(ResultadoValidacion.NoseEncuentraElUsuario);
+                }
+            }
+        }
+
+        public void verificarReportes(string usuario)
+        {
+            using (MemoramaDBEntities db = new MemoramaDBEntities()) 
+            {
+
+                var usuarioabuscar = db.Usuario.FirstOrDefault(x => x.Nickname == usuario);
+                if(usuarioabuscar != null)
+                {
+                    usuarioabuscar.CantidadReportes = usuarioabuscar.CantidadReportes + 1;
+                    db.SaveChanges();
+                    Callback.EstadoReporte();
+
+                }
+                if (usuarioabuscar.CantidadReportes > 3) 
+                {
+                    db.Usuario.Remove(usuarioabuscar);
+                    db.SaveChanges();
+                    Callback.EstadoReporte();
+
                 }
             }
         }

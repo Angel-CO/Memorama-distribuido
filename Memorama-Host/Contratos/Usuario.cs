@@ -29,6 +29,7 @@ namespace Contratos
         public string EstadoVerificacion { get; set; }
         public string CodigoVerificacion { get; set; }
         public Nullable<int> PuntajeTotal { get; set; }
+        public Nullable<int> CantidadReportes { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Partida> Partida { get; set; }

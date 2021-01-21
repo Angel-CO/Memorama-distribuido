@@ -61,5 +61,8 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void ContraseñaCambiada();
+
+        [OperationContract(IsOneWay = true)]
+        void EstadoReporte();
     }
 }

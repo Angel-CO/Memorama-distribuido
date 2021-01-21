@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MemoramaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MemoramaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Partida">
           <Key>
             <PropertyRef Name="IdPartida" />
@@ -39,12 +39,13 @@
             <PropertyRef Name="Nickname" />
           </Key>
           <Property Name="Nickname" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="25" />
+          <Property Name="Password" Type="varchar(max)" />
           <Property Name="Correo" Type="varchar(max)" />
           <Property Name="NumeroPartidas" Type="int" />
           <Property Name="EstadoVerificacion" Type="varchar(max)" />
           <Property Name="CodigoVerificacion" Type="varchar(max)" />
           <Property Name="PuntajeTotal" Type="int" />
+          <Property Name="CantidadReportes" Type="int" />
         </EntityType>
         <Association Name="FK_dbo_Partida_dbo_Usuario_Nickname">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1">
@@ -106,8 +107,7 @@
             <End Role="SolicitudAmistad" EntitySet="SolicitudAmistad" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MemoramaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -157,6 +157,7 @@
           <NavigationProperty Name="Partida" Relationship="Self.FK_dbo_Partida_dbo_Usuario_Nickname" FromRole="Usuario" ToRole="Partida" />
           <NavigationProperty Name="Reporte" Relationship="Self.FK_dbo_Reporte_dbo_Usuario_Nickname" FromRole="Usuario" ToRole="Reporte" />
           <NavigationProperty Name="SolicitudAmistad" Relationship="Self.FK_dbo_SolicitudAmistad_dbo_Usuario_Nickname" FromRole="Usuario" ToRole="SolicitudAmistad" />
+          <Property Name="CantidadReportes" Type="Int32" />
         </EntityType>
         <Association Name="FK_dbo_Partida_dbo_Usuario_Nickname">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1">
@@ -259,6 +260,7 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="MemoramaDBModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="CantidadReportes" ColumnName="CantidadReportes" />
                 <ScalarProperty Name="Nickname" ColumnName="Nickname" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
