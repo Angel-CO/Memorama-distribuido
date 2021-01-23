@@ -34,10 +34,14 @@ namespace Contratos
         void GetRanking(List<UsuarioRanking> ranking);
 
         [OperationContract(IsOneWay = true)]
-        void GetCarta(String objeto, String objeto2); 
+        void GetCarta(String objeto, String objeto2);
+
 
         [OperationContract(IsOneWay = true)]
-        void GetJuego(Boolean bandera, int numero);
+        void GetJuego(Boolean bandera, List<int> tablero);
+
+        [OperationContract(IsOneWay = true)]
+        void GetMovimiento(Boolean bandera, int primeraCarta, int segundaCarta);
 
 
         [OperationContract(IsOneWay = true)]

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memorama-Host", "Memorama-H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contratos", "Contratos\Contratos.csproj", "{06EF7752-6A19-4D9C-8937-4C53015BB8C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContratosTests", "ContratosTests\ContratosTests.csproj", "{FD0CDB68-B754-4A2E-951D-5565707C2637}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{06EF7752-6A19-4D9C-8937-4C53015BB8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06EF7752-6A19-4D9C-8937-4C53015BB8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06EF7752-6A19-4D9C-8937-4C53015BB8C8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD0CDB68-B754-4A2E-951D-5565707C2637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD0CDB68-B754-4A2E-951D-5565707C2637}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD0CDB68-B754-4A2E-951D-5565707C2637}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD0CDB68-B754-4A2E-951D-5565707C2637}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

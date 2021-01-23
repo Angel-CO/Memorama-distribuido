@@ -13,6 +13,8 @@ namespace Contratos
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
     public class Servicios : IContratos
     {
+        private List<int> globalTablero = new List<int>() { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
+        private List<int> tablero = new List<int>();
 
         /// <summary>
         /// Clase encargada del funcionamiento del servidor, aquí contien la implentacion de todos los metodos expuestos en la red
@@ -241,25 +243,64 @@ namespace Contratos
         {
             Boolean bandera = false;
             Random random = new Random();
-           int numero =  random.Next(0, 5);
+            GenerarTablero(random);
             if (usuariosConectados.Count >= 2)
             {
                 bandera = true;
-               
-                foreach(var cliente in usuariosConectados)
+
+                foreach (var cliente in usuariosConectados)
                 {
-                    Callback.GetJuego(bandera, numero);
+                    Callback.GetJuego(bandera, tablero);
                 }
-                
+
             }
-            else 
+            else
             {
                 foreach (var cliente in usuariosConectados)
                 {
-                    Callback.GetJuego(bandera,numero);
+                    Callback.GetJuego(bandera, tablero);
                 }
             }
         }
+
+
+        public List<int> GenerarTablero(Random random)
+        {
+            tablero = globalTablero;
+            int n = tablero.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = random.Next(n + 1);
+                int value = tablero[k];
+                tablero[k] = tablero[n];
+                tablero[n] = value;
+            }
+            return tablero;
+        }
+
+
+
+        public void HacerMovimiento(int primeraCarta, int segundaCarta)
+        {
+            if (tablero[primeraCarta] == tablero[segundaCarta])
+            {
+                foreach (var cliente in usuariosConectados)
+                {
+                    Callback.GetMovimiento(true, primeraCarta, segundaCarta);
+                }
+            }
+            else
+            {
+                foreach (var cliente in usuariosConectados)
+                {
+                    Callback.GetMovimiento(false, primeraCarta, segundaCarta);
+                }
+            }
+        }
+
+
+
 
         public void PasarCarta(String objeto, String objeto2)
         {

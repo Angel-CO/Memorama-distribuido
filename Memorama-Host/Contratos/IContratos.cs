@@ -39,6 +39,9 @@ namespace Contratos
         void Empezarjuego();
 
         [OperationContract(IsOneWay = true)]
+        void HacerMovimiento(int primeraCarta, int segundaCarta);
+
+        [OperationContract(IsOneWay = true)]
         void PasarCarta(String objeto, String Objeto2);
 
         [OperationContract(IsOneWay = true)]
