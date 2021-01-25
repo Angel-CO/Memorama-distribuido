@@ -239,7 +239,7 @@ namespace Contratos
             }
         }
 
-        public void Empezarjuego()
+        /*public void Empezarjuego()
         {
             Boolean bandera = false;
             Random random = new Random();
@@ -261,7 +261,9 @@ namespace Contratos
                     Callback.GetJuego(bandera, tablero);
                 }
             }
-        }
+        }*/
+
+
 
 
         public List<int> GenerarTablero(Random random)
@@ -302,12 +304,17 @@ namespace Contratos
 
 
 
-        public void PasarCarta(String objeto, String objeto2)
+        public void PasarCarta(int posicion)
         {
             
-            Callback.GetCarta(objeto,objeto2);
-            
+           
+            foreach (var cliente in usuariosConectados)
+            {
+                Callback.GetCarta(posicion);
+            }
+
         }
+
 
         public void LogOutLobby(String usuario)
         {
@@ -481,5 +488,19 @@ namespace Contratos
                 }
             }
         }
+
+        public void Empezarjuego()
+        {
+            Random random = new Random();
+            int numero = random.Next(0, 5);
+
+            foreach (var cliente in usuariosConectados)
+            {
+                Callback.GetJuego(numero);
+            }
+            
+
+        }
+
     }
 }

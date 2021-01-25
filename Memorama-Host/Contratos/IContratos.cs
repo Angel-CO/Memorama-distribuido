@@ -42,7 +42,7 @@ namespace Contratos
         void HacerMovimiento(int primeraCarta, int segundaCarta);
 
         [OperationContract(IsOneWay = true)]
-        void PasarCarta(String objeto, String Objeto2);
+        void PasarCarta(int id);
 
         [OperationContract(IsOneWay = true)]
         void LogOutLobby(String usuario);
