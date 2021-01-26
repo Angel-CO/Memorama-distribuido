@@ -306,13 +306,12 @@ namespace Contratos
 
         public void PasarCarta(int posicion)
         {
-            
-           
+
+
             foreach (var cliente in usuariosConectados)
             {
-                Callback.GetCarta(posicion);
-            }
-
+                cliente.Key.GetCarta(posicion);
+            } 
         }
 
 
@@ -496,7 +495,7 @@ namespace Contratos
 
             foreach (var cliente in usuariosConectados)
             {
-                Callback.GetJuego(numero);
+                cliente.Key.GetJuego(numero);
             }
             
 
