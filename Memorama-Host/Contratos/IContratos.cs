@@ -63,5 +63,13 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void verificarReportes(string usuario);
+
+
+
+
+
+
+        [OperationContract(IsOneWay = true)]
+        void CartaEquivocada();
     }
 }

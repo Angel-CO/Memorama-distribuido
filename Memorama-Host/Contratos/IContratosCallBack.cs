@@ -68,5 +68,13 @@ namespace Contratos
 
         [OperationContract(IsOneWay = true)]
         void EstadoReporte();
+
+
+
+
+
+        [OperationContract(IsOneWay = true)]
+        void GetTurno(bool turno);
+
     }
 }

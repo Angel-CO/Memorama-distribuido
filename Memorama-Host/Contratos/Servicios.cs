@@ -22,6 +22,9 @@ namespace Contratos
 
         private Dictionary<IContratosCallBack, string> usuariosConectados = new Dictionary<IContratosCallBack, string>();
         private List<string> usuariosMensaje = new List<string>();
+        private int primeraCarta;
+        private int segundaCarta;
+        private IContratosCallBack personaEnTurno;
 
         public void Login(Usuario usuario)
         {
@@ -235,33 +238,10 @@ namespace Contratos
                     ranking.Add(usuarioRanking);
                 }
                 Callback.GetRanking(ranking);
-                //usuarios.Max<>
+              
             }
         }
 
-        /*public void Empezarjuego()
-        {
-            Boolean bandera = false;
-            Random random = new Random();
-            GenerarTablero(random);
-            if (usuariosConectados.Count >= 2)
-            {
-                bandera = true;
-
-                foreach (var cliente in usuariosConectados)
-                {
-                    Callback.GetJuego(bandera, tablero);
-                }
-
-            }
-            else
-            {
-                foreach (var cliente in usuariosConectados)
-                {
-                    Callback.GetJuego(bandera, tablero);
-                }
-            }
-        }*/
 
 
 
@@ -313,6 +293,41 @@ namespace Contratos
                 cliente.Key.GetCarta(posicion);
             } 
         }
+
+
+        public void CartaEquivocada()
+        {
+            bool flag = true;
+            bool passed = false;
+            foreach (var cliente in usuariosConectados)
+            {
+                if (personaEnTurno == usuariosConectados.Last().Key && flag)
+                {
+                    cliente.Key.GetTurno(true);
+                    personaEnTurno = cliente.Key;
+                    flag = false;
+                }
+                else if (cliente.Key == personaEnTurno)
+                {
+                    cliente.Key.GetTurno(false);
+                    passed = true;
+                }
+                else if (passed)
+                {
+                    cliente.Key.GetTurno(true);
+                    personaEnTurno = cliente.Key;
+                    passed = false;
+                }
+                else
+                {
+                    cliente.Key.GetTurno(false);
+                }
+
+            }
+        }
+
+
+
 
 
         public void LogOutLobby(String usuario)
@@ -492,14 +507,20 @@ namespace Contratos
         {
             Random random = new Random();
             int numero = random.Next(0, 5);
+            
 
             foreach (var cliente in usuariosConectados)
             {
                 cliente.Key.GetJuego(numero);
+                cliente.Key.GetTurno(false);
+
             }
-            
+            personaEnTurno = usuariosConectados.First().Key;
+            usuariosConectados.First().Key.GetTurno(true);
+
 
         }
 
     }
 }
+ 
