@@ -372,7 +372,7 @@ namespace Contratos
             {
 
                 var usuarioabuscar = db.Usuario.FirstOrDefault(x => x.Nickname == usuario);
-                    if(usuario != null)
+                    if(usuarioabuscar != null)
                 {
                     if (usuarioabuscar.Correo.Equals(correo))
                     {
