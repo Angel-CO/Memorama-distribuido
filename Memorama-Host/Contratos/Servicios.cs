@@ -151,29 +151,37 @@ namespace Contratos
             Boolean existe = false;
 
 
-            foreach (var usuarioC in usuariosConectados)
+            if (usuariosConectados.Count()< 2)
             {
-                if (usuario.Nickname.Equals(usuarioC.Value)) 
+                foreach (var usuarioC in usuariosConectados)
                 {
-                    existe = true;
-                    break;
+                    if (usuario.Nickname.Equals(usuarioC.Value))
+                    {
+                        existe = true;
+                        break;
+
+
+                    }
+
 
 
                 }
+                if (!existe)
+                {
+                    usuariosConectados.Add(Callback, usuario.Nickname);
+                    usuariosMensaje.Add(usuario.Nickname);
+                    NotificarDeNuevoUsuario();
+                }
+                else
+                {
+                    NotificarDeNuevoUsuario();
 
-
-            
+                }
             }
-            if(!existe) 
+            else 
             {
-                usuariosConectados.Add(Callback, usuario.Nickname);
-                usuariosMensaje.Add(usuario.Nickname);
-                NotificarDeNuevoUsuario();
-            }
-            else
-            {
-                NotificarDeNuevoUsuario();
 
+                Callback.LobbyLleno();
             }
 
             
@@ -498,18 +506,32 @@ namespace Contratos
 
         public void Empezarjuego()
         {
-            Random random = new Random();
-            int numero = random.Next(0, 5);
-            
-
-            foreach (var cliente in usuariosConectados)
+            if (usuariosConectados.Count() == 2 )
             {
-                cliente.Key.GetJuego(numero);
-                cliente.Key.GetTurno(false);
+
+                Random random = new Random();
+                int numero = random.Next(0, 5);
+
+
+                foreach (var cliente in usuariosConectados)
+                {
+                    cliente.Key.GetJuego(numero);
+                    cliente.Key.GetTurno(false);
+
+                }
+                personaEnTurno = usuariosConectados.First().Key;
+                usuariosConectados.First().Key.GetTurno(true);
+
 
             }
-            personaEnTurno = usuariosConectados.First().Key;
-            usuariosConectados.First().Key.GetTurno(true);
+            else 
+            {
+
+                Callback.FaltanJugadores();
+            
+            }
+            
+          
 
 
         }

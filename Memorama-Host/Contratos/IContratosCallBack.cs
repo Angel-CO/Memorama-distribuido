@@ -67,7 +67,11 @@ namespace Contratos
         void EstadoReporte();
 
 
+        [OperationContract(IsOneWay = true)]
+        void FaltanJugadores();
 
+        [OperationContract(IsOneWay = true)]
+        void LobbyLleno();
 
 
         [OperationContract(IsOneWay = true)]
