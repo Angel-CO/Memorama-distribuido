@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
-using System.Linq.Expressions;
 
 namespace Contratos
 {
@@ -47,7 +40,7 @@ namespace Contratos
             using (MemoramaDBEntities db = new MemoramaDBEntities())
             {
                 Random random = new Random();
-                int codigoVerificacion = random.Next(100000, 1000000);
+                
 
 
                 Usuario us = new Usuario();
@@ -55,10 +48,9 @@ namespace Contratos
                 us.Nickname = nickname;
                 us.Password = password;
 
-                //us.EstadoVerificacion = "Sin verificar";
-                //us.CodigoVerificacion = codigoVerificacion.ToString();
+              
 
-                ;
+                
                 us.EstadoVerificacion = estadoverificar;
                 us.CodigoVerificacion = codigodeverificacion;
 
@@ -71,7 +63,7 @@ namespace Contratos
 
 
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
 
                     return ResultadosRegistro.NoEsPosibleRegistrar;

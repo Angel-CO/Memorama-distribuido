@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>Memorama-Host</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Product</ProjectType>
+  <ProjectGuid>d3b6d900-3b39-4c94-9d96-574d40c862e8</ProjectGuid>
+  <FullPath>C:\Users\jhoni\Documents\Memorama Proyecto\Memorama-Host\Memorama-Host\Memorama-Host.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="C:\Users\jhoni\Documents\Memorama Proyecto\Memorama-Host\.sonarqube\out\1\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">C:\Users\jhoni\Documents\Memorama Proyecto\Memorama-Host\Memorama-Host\bin\Debug\Memorama-Host.exe.RoslynCA.json|C:\Users\jhoni\Documents\Memorama Proyecto\Memorama-Host\Memorama-Host\bin\Debug\Memorama-Host.exe.RoslynCA.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">C:\Users\jhoni\Documents\Memorama Proyecto\Memorama-Host\.sonarqube\out\1</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+</ProjectInfo>

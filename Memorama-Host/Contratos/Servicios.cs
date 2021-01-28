@@ -2,11 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Threading.Tasks;
-using System.Linq.Expressions;
-using System.Data.Common;
 
 namespace Contratos
 {
@@ -22,8 +17,7 @@ namespace Contratos
 
         private Dictionary<IContratosCallBack, string> usuariosConectados = new Dictionary<IContratosCallBack, string>();
         private List<string> usuariosMensaje = new List<string>();
-        private int primeraCarta;
-        private int segundaCarta;
+       
         private IContratosCallBack personaEnTurno;
 
         public void Login(Usuario usuario)
@@ -64,8 +58,7 @@ namespace Contratos
                 us.Nickname = usuario.Nickname;
                 us.Password = usuario.Password;
                 
-                //us.EstadoVerificacion = "Sin verificar";
-                //us.CodigoVerificacion = codigoVerificacion.ToString();
+               
 
                 usuario.CodigoVerificacion = codigoVerificacion.ToString();
                 usuario.EstadoVerificacion = "Sin verificar";
@@ -81,7 +74,7 @@ namespace Contratos
                     enviarCorreo(usuario.Correo, codigoVerificacion);
 
                 }
-                catch (Exception e){
+                catch (Exception){
 
                     Callback.GetRegistroResultado(ResultadosRegistro.NoEsPosibleRegistrar);
                 }

@@ -1,0 +1,6 @@
+projectKey=Memorama-Host-Chido
+serverUrl=http://localhost:9003
+serverVersion=8.5.1.38104
+dashboardUrl=http://localhost:9003/dashboard?id=Memorama-Host-Chido
+ceTaskId=AXdGfrg9XQwjLWrekTtM
+ceTaskUrl=http://localhost:9003/api/ce/task?id=AXdGfrg9XQwjLWrekTtM
